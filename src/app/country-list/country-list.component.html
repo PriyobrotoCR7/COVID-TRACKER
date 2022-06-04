@@ -1,0 +1,41 @@
+<nav class="navbar">
+  <div class="input">
+    <input class="form-control" type="text" name ="Country" [(ngModel)]="nameSearch"
+  placeholder="Enter Country Name To Search">
+  </div>
+</nav>
+
+
+
+<table class="table table-success table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Country Name</th>
+        <th scope="col">New Confirmed</th>
+        <th scope="col">Total Confirmed</th>
+        <th scope="col"> New Deaths</th>
+        <th scope="col">Total Deaths</th>
+        <th scope="col">New Recovered</th>
+        <th scope="col">Total Recovered</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let countries of allCountry | search: nameSearch | paginate: 
+      { itemsPerPage: 10, currentPage: p }">
+        <!-- <th scope="row">1</th> -->
+        <td>{{countries.Country}}</td>
+        <td>{{countries.NewConfirmed}}</td>
+        <td>{{countries.TotalConfirmed}}</td>
+        <td>{{countries.NewDeaths}}</td>
+        <td>{{countries.TotalDeaths}}</td>
+        <td>{{countries.NewRecovered}}</td>
+        <td>{{countries.TotalRecovered}}</td>
+      </tr>
+    </tbody>
+</table>
+<span class="pagination justify-content-end">
+  <pagination-controls 
+  (pageChange)="p = $event" 
+  class="float-right">
+  </pagination-controls>
+</span>
