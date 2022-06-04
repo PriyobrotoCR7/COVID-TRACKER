@@ -20,7 +20,7 @@ export class ConfirmedCasesComponent implements OnInit {
       this.confirmed = data;
       this.newConfirmed = this.confirmed.Global.NewConfirmed;
       this.totalConfirmed = this.confirmed.Global.TotalConfirmed
-      console.log(data);
+      // console.log(data);
     },(err)=>{
       console.log('Not Able to fetch Data'+ err)
     })
